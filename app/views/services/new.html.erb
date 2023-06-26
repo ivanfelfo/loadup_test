@@ -1,0 +1,51 @@
+<h1>New Booking</h1>
+
+<%= form_with model: @service, url: services_path, method: :post do |form| %>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :animal_name %>
+    <%= form.text_field :animal_name %>
+  </div>
+
+    <div>
+    <%= form.label :animal_type %>
+    <%= form.radio_button :animal_type, '0' %>
+    <%= form.label :animal_type, 'Cat' %>
+    <%= form.radio_button :animal_type, '1' %>
+    <%= form.label :animal_type, 'Dog' %>
+  </div>
+
+  <div>
+    <%= form.label :hours_requested %>
+    <%= form.number_field :hours_requested, min: 2, max: 8 %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_service %>
+    <%= form.date_field :date_of_service %>
+  </div>
+
+  <div>
+    <%= form.submit 'Create Booking' %>
+  </div>
+<% end %>
+
+<% if @service.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+

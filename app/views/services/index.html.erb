@@ -1,0 +1,27 @@
+<h1>All Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Animal Name</th>
+      <th>Animal Type</th>
+      <th>Hours Requested</th>
+      <th>Date of Service</th>
+      <th>Total Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.first_name %></td>
+        <td><%= service.last_name %></td>
+        <td><%= service.animal_name %></td>
+        <td><%= service.animal_type_display %></td>
+        <td><%= service.hours_requested %></td>
+        <td><%= service.date_of_service %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

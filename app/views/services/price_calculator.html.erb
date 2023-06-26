@@ -1,0 +1,24 @@
+<h1>Price Calculator</h1>
+
+<%= form_with url: services_price_calculator_path, method: :post do |form| %>
+  <div>
+    <%= form.label :animal_type %>
+    <%= form.radio_button :animal_type, 'cat' %>
+    <%= form.label :animal_type, 'Cat' %>
+    <%= form.radio_button :animal_type, 'dog' %>
+    <%= form.label :animal_type, 'Dog' %>
+  </div>
+
+  <div>
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.submit 'Calculate' %>
+  </div>
+<% end %>
+
+<% if @price %>
+  <h2>Price: <%= @price %></h2>
+<% end %>
